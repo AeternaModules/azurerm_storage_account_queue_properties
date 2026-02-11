@@ -1,6 +1,6 @@
-variable "storage_account_queue_propertiess" {
+variable "storage_account_queue_propertieses" {
   description = <<EOT
-Map of storage_account_queue_propertiess, attributes below
+Map of storage_account_queue_propertieses, attributes below
 Required:
     - storage_account_id
 Optional:
@@ -36,7 +36,7 @@ EOT
       max_age_in_seconds = number
     })))
     hour_metrics = optional(object({
-      include_apis          = optional(bool, false)
+      include_apis          = optional(bool) # Default: false
       retention_policy_days = optional(number)
       version               = string
     }))
@@ -48,14 +48,14 @@ EOT
       write                 = bool
     }))
     minute_metrics = optional(object({
-      include_apis          = optional(bool, false)
+      include_apis          = optional(bool) # Default: false
       retention_policy_days = optional(number)
       version               = string
     }))
   }))
   validation {
     condition = alltrue([
-      for k, v in var.storage_account_queue_propertiess : (
+      for k, v in var.storage_account_queue_propertieses : (
         v.cors_rule == null || (length(v.cors_rule) <= 5)
       )
     ])
