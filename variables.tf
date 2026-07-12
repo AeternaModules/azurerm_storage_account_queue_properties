@@ -1,6 +1,6 @@
-variable "storage_account_queue_propertieses" {
+variable "storage_account_queue_properties" {
   description = <<EOT
-Map of storage_account_queue_propertieses, attributes below
+Map of storage_account_queue_properties, attributes below
 Required:
     - storage_account_id
 Optional:
@@ -55,7 +55,7 @@ EOT
   }))
   validation {
     condition = alltrue([
-      for k, v in var.storage_account_queue_propertieses : (
+      for k, v in var.storage_account_queue_properties : (
         v.cors_rule == null || (length(v.cors_rule) <= 5)
       )
     ])

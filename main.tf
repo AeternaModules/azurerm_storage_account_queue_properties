@@ -1,5 +1,5 @@
-resource "azurerm_storage_account_queue_properties" "storage_account_queue_propertieses" {
-  for_each = var.storage_account_queue_propertieses
+resource "azurerm_storage_account_queue_properties" "storage_account_queue_properties" {
+  for_each = var.storage_account_queue_properties
 
   storage_account_id = each.value.storage_account_id
 
