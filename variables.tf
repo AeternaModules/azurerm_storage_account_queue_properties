@@ -36,7 +36,7 @@ EOT
       max_age_in_seconds = number
     })))
     hour_metrics = optional(object({
-      include_apis          = optional(bool) # Default: false
+      include_apis          = optional(bool)
       retention_policy_days = optional(number)
       version               = string
     }))
@@ -48,7 +48,7 @@ EOT
       write                 = bool
     }))
     minute_metrics = optional(object({
-      include_apis          = optional(bool) # Default: false
+      include_apis          = optional(bool)
       retention_policy_days = optional(number)
       version               = string
     }))
