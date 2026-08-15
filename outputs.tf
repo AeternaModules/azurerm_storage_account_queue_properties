@@ -8,15 +8,15 @@ output "storage_account_queue_properties_cors_rule" {
 }
 output "storage_account_queue_properties_hour_metrics" {
   description = "Map of hour_metrics values across all storage_account_queue_properties, keyed the same as var.storage_account_queue_properties"
-  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => v.hour_metrics if v.hour_metrics != null && length(v.hour_metrics) > 0 }
+  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => one(v.hour_metrics) if v.hour_metrics != null && length(v.hour_metrics) > 0 }
 }
 output "storage_account_queue_properties_logging" {
   description = "Map of logging values across all storage_account_queue_properties, keyed the same as var.storage_account_queue_properties"
-  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => v.logging if v.logging != null && length(v.logging) > 0 }
+  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => one(v.logging) if v.logging != null && length(v.logging) > 0 }
 }
 output "storage_account_queue_properties_minute_metrics" {
   description = "Map of minute_metrics values across all storage_account_queue_properties, keyed the same as var.storage_account_queue_properties"
-  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => v.minute_metrics if v.minute_metrics != null && length(v.minute_metrics) > 0 }
+  value       = { for k, v in azurerm_storage_account_queue_properties.storage_account_queue_properties : k => one(v.minute_metrics) if v.minute_metrics != null && length(v.minute_metrics) > 0 }
 }
 output "storage_account_queue_properties_storage_account_id" {
   description = "Map of storage_account_id values across all storage_account_queue_properties, keyed the same as var.storage_account_queue_properties"
